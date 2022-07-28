@@ -1,7 +1,4 @@
 # Definition for singly-linked list.
-from asyncio.windows_events import NULL
-from email.header import Header
-from operator import truediv
 from typing import Optional
 
 
@@ -15,7 +12,7 @@ class Solution:
         Head = head
         rev = []
 
-        if Head == NULL:
+        if Head == None:
             return False
         elif Head.next == None:
             return True
@@ -23,26 +20,27 @@ class Solution:
             while Head != None:
                 rev.append(Head.val)
                 Head = Head.next
+            front = rev.copy()
             rev.reverse()
-        
-        return False
+
+            print(front)
+            print(rev)
+
+            for i in range(len(front)):
+                if front[i] != rev[i]:
+                    return False
+            
+            #return True
+
+
+        return True
 
 
 sol = Solution()
 
 head = ListNode(1)
 head.next = ListNode(2)
-head.next.next = ListNode(2)
+head.next.next = ListNode(3)
 head.next.next.next = ListNode(1)
-
-# rev = []
-# temp = head
-
-# while temp != None:
-#     rev.append(temp.val)
-#     temp = temp.next
-# rev.reverse()
-
-# print(rev)
 
 print(sol.isPalindrome(head)) # true
