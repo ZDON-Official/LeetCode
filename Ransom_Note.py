@@ -10,13 +10,9 @@ class Solution:
         elif ransomNote in magazine:
             return True
         else:
-            # print("in else", magazine)
             ans = 0
             for i in ransomNote:
                 if (i not in magazine):
-                    # print("i is ", i)
-                    # print("magazine is ", magazine)
-                    # print("if is ", i not in magazine)
                     return False
                 if len(magazine) == 0:
                     break
@@ -24,12 +20,8 @@ class Solution:
                 for j in magazine:
                     if i == j:
                         ans += 1 
-                        #magazine = magazine.translate({ord(j):None})
                         magazine = magazine.replace(j, '', 1)
-                        # print("new ", magazine)
                         break
-            # if ans == len(ransomNote):
-            #     return True
             return True
 
         return False
@@ -41,7 +33,7 @@ a = "aa"
 b = "ab"
 
 
-# print(sol.canConstruct(a,b)) # false
+print(sol.canConstruct(a,b)) # false
 print("")
 print(sol.canConstruct("aab","baa")) # true
 print("")
