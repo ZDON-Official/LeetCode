@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class Rich_wealth {
@@ -12,12 +13,16 @@ public class Rich_wealth {
 }
 
 class Solution {
-    public int maximumWealth(int[][] accounts) {
-        int max_wealth = 0;
+    // public int maximumWealth(int[][] accounts) {
+    //     int max_wealth = 0;
 
-        for (var i : accounts) {
-            max_wealth = Math.max(max_wealth, IntStream.of(i).sum());
-        }
-        return max_wealth;
+    //     for (var i : accounts) {
+    //         max_wealth = Math.max(max_wealth, IntStream.of(i).sum());
+    //     }
+    //     return max_wealth;
+    // }
+
+    public int maximumWealth(int[][] accounts) {
+        return Arrays.stream(accounts).mapToInt(customer -> Arrays.stream(customer).sum()).max().getAsInt();
     }
 }
