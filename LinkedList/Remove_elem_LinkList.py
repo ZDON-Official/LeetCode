@@ -1,7 +1,9 @@
-# Definition for singly-linked list.
+# https://leetcode.com/problems/remove-linked-list-elements/
+# Remove Linked List Elements
+
 from typing import Optional
 
-
+# Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
