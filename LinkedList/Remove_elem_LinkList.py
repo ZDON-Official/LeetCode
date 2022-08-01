@@ -12,37 +12,53 @@ class ListNode:
 
 class Solution:
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
-        Head = head
+        Curr = head
         Prev = None
 
         if head == None:
             return head
         
-        while Head:
-            temp = Head.next
-            if Head.val == val:
+        while Curr:
+            temp = Curr.next
+            if Curr.val == val:
                 if Prev != None:
-                    Prev.next = Head.next 
+                    Prev.next = Curr.next 
                 else:
                     # head of the ListNode
-                    Head.next = None
+                    Curr.next = None
                     head = temp
             else:
-                Prev = Head
-            Head = temp
+                Prev = Curr
+            Curr = temp
         
         return head
 
+
+
+    def removeElements2(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+        dummy = ListNode(0)
+        curr = dummy
+        while head:
+            if head.val == val:
+                head = head.next
+                continue
+            
+            curr.next = head
+            curr = curr.next
+            head = head.next
+        
+        curr.next = None
+        return dummy.next
+
 sol = Solution()
 
-head = ListNode(7)
-head.next = ListNode(7)
-head.next.next = ListNode(7)
+head = ListNode(2)
+head.next = ListNode(1)
+head.next.next = ListNode(3)
 head.next.next.next = ListNode(7)
 
 ans = sol.removeElements(head, 7)
 
-print("------------------------------------------------")
 while ans:
     print(ans.val)
     ans = ans.next
