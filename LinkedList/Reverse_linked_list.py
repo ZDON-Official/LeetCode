@@ -8,6 +8,13 @@ from typing import Optional
 
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        
+        rev = None
 
-        return head
+        while head:
+            curr = head
+            head = head.next
+            curr.next = rev
+            rev = curr
+
+
+        return rev
