@@ -17,6 +17,15 @@ class Solution:
         # while the two listNode are not None loop over them
         while list1 or list2:
             
+            if list1.val > list2.val:
+                pass
+            elif list1.val < list2.val:
+                pass
+            else:
+                # both val are equal
+                merged = list1.val
+                merged.next = list2.val
+                pass
             
             # set the two lists to .next if it is not None
             list1 = list1.next if list1 else None
