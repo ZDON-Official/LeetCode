@@ -19,16 +19,13 @@ class Solution:
             return head
         
         while Head:
-            # print(Head.val)
             temp = Head.next
             if Head.val == val:
                 if Prev != None:
                     Prev.next = Head.next 
                 else:
                     # head of the ListNode
-                    #temp = Head.next
                     Head.next = None
-                    #Head = temp
                     head = temp
             else:
                 Prev = Head
