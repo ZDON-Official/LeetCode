@@ -13,23 +13,23 @@ from typing import Optional
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         merged = ListNode(0)
+        curr  = merged
 
         # while the two listNode are not None loop over them
-        while list1 or list2:
+        while list1 and list2:
             
             if list1.val > list2.val:
-                pass
+                curr.next = list2
+                list2 = list2.next
             elif list1.val < list2.val:
-                pass
+                curr.next = list1
+                list1 = list1.next
             else:
                 # both val are equal
-                merged = list1.val
-                merged.next = list2.val
-                pass
-            
-            # set the two lists to .next if it is not None
-            list1 = list1.next if list1 else None
-            list2 = list2.next if list2 else None
+                curr.next = list2
+                list2 = list2.next
+            curr = curr.next
 
+        curr.next = list1 or list2
 
-        return merged
+        return merged.next
