@@ -28,25 +28,16 @@ class Solution:
         
         while l1.next:
             if a-1 == 0:
-                # start of merge
                 print("staring merge-", l1.val)
-                #Head = l1.next
                 l1.next = list2
-                #print("next-", l1.next.val)
             if a == 0 and b > 0:
-                # end of merge
-                #print("end merge-", l1.val, b)
-                #Head = Head.next
                 pass
             
             l1 = l1.next
             a -= 1
             b -= 1
             
-        l1.next = Head
-        
-        #print("val-", l1.val)
-        
+        l1.next = Head     
         
         
         return list1
