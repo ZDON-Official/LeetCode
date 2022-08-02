@@ -9,11 +9,7 @@ class ListNode:
         
 class Solution:
     def mergeInBetween(self, list1: ListNode, a: int, b: int, list2: ListNode) -> ListNode:
-        merged = ListNode(0)
-        curr = merged.next
-        
         l1 = list1
-        l2 = list2
         Head = l1
         B = b
         while Head:
@@ -21,23 +17,16 @@ class Solution:
                 Head = Head.next
                 break
             B -= 1
-            Head = Head.next # tail
+            Head = Head.next
             
-        print("head val - ",Head.val)
-        
-        
         while l1.next:
             if a-1 == 0:
-                print("staring merge-", l1.val)
+                # start of merge           
                 l1.next = list2
-            if a == 0 and b > 0:
-                pass
             
             l1 = l1.next
             a -= 1
-            b -= 1
             
-        l1.next = Head     
-        
+        l1.next = Head
         
         return list1
