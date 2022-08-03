@@ -11,20 +11,15 @@ class Solution:
     def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         List = []
         
+        # store the Nodes in a list
         curr = head
         while curr:
             List.append(curr)
-            curr = curr.next
+            curr = curr.next           
         
-        # for i in List:
-        #     print(i.val)
-            
-        
+        # swap the values of the nodes
         tmp = List[k-1].val
-        # print("tmp-",tmp)
-        # print("end-", List[-k].val)
         List[k-1].val = List[-k].val
         List[-k].val = tmp
-        
         
         return head
